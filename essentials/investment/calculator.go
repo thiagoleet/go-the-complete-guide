@@ -31,7 +31,11 @@ func main() {
 	// fmt.Printf("Future value (with inflation): %.2f\n", futureRealValue)
 
 	formattedFV := fmt.Sprintf("Future value: %.2f\n", futureValue)
-	formattedRFV := fmt.Sprintf("Future value (with inflation): %.2f\n", futureRealValue)
+	// formattedRFV := fmt.Sprintf("Future value (with inflation): %.2f\n", futureRealValue)
+
+	formattedRFV := fmt.Sprintf(`\n
+		Future value (with inflation): %.2f
+		\n`, futureRealValue) // Using multiple lines
 
 	fmt.Println(formattedFV)
 	fmt.Println(formattedRFV)
