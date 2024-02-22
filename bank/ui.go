@@ -1,9 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-func PrintOptions() {
+	"github.com/Pallinder/go-randomdata"
+)
+
+func presentOptions() {
 	fmt.Println("Welcome to Go Bank!")
+	fmt.Println("Reach us 24/7", randomdata.PhoneNumber())
 	fmt.Println("What would you like to do?")
 	fmt.Println("1. Check balance")
 	fmt.Println("2. Deposit money")
@@ -11,7 +16,7 @@ func PrintOptions() {
 	fmt.Println("4. Exit")
 }
 
-func PrintLogo() {
+func showLogo() {
 	fmt.Println(`
 	.d8888b.                888888b.                     888      
 	d88P  Y88b               888  "88b                    888      
