@@ -17,12 +17,14 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 		return
-
 	}
 
 	appUser.OutputUserData()
 	appUser.ClearUserName()
 	appUser.OutputUserData()
+
+	admin := user.NewAdmin("test@example.com", "password")
+	admin.OutputUserData()
 }
 
 func getUserData(promptText string) string {
