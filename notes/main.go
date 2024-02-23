@@ -7,28 +7,67 @@ import (
 	"strings"
 
 	"example.com/go-project/note"
+	"example.com/go-project/todo"
 )
+
+type Saver interface {
+	Save() error
+}
+
+type Displayer interface {
+	Display()
+}
+
+// Embadable interface
+type Outputtable interface {
+	Saver
+	Displayer
+}
 
 func main() {
 	title, content := getNoteData()
 
 	userNote, err := note.New(title, content)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	err = outputData(userNote)
+
+	if err != nil {
+		return
+	}
+
+	todoText := getUserInput("Todo text:")
+
+	userTodo, err := todo.New(todoText)
 
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	userNote.Display()
-	err = userNote.Save()
+	outputData(userTodo)
+
+}
+
+func outputData(data Outputtable) error {
+	data.Display()
+	return saveData(data)
+}
+
+func saveData(data Saver) error {
+	err := data.Save()
 
 	if err != nil {
 		fmt.Println("Saving the note failed")
-		return
+		return err
 	}
 
 	fmt.Println("Saving the note succeded")
 
+	return nil
 }
 
 func getNoteData() (string, string) {
