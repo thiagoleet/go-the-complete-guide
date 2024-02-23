@@ -27,6 +27,8 @@ func main() {
 	}
 
 	appUser.outputUserData()
+	appUser.clearUserName()
+	appUser.outputUserData()
 }
 
 func getUserData(promptText string) string {
@@ -38,4 +40,9 @@ func getUserData(promptText string) string {
 
 func (u User) outputUserData() {
 	fmt.Println(u.firstName, u.lastName, u.birthdate)
+}
+
+func (u *User) clearUserName() {
+	u.firstName = ""
+	u.lastName = ""
 }
