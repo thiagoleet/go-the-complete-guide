@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+type User struct {
+	firstName string
+	lastName  string
+	bithdate  string
+}
+
 func main() {
 	firstName := getUserData("Please enter your first name: ")
 	lastName := getUserData("Please enter your last name: ")
@@ -11,7 +17,7 @@ func main() {
 
 	// ... do something awesome with that gathered data!
 
-	fmt.Println(firstName, lastName, birthdate)
+	outputUserData(firstName, lastName, birthdate)
 }
 
 func getUserData(promptText string) string {
@@ -19,4 +25,8 @@ func getUserData(promptText string) string {
 	var value string
 	fmt.Scan(&value)
 	return value
+}
+
+func outputUserData(firstName, lastName, birthdate string) {
+	fmt.Println(firstName, lastName, birthdate)
 }
