@@ -12,8 +12,8 @@ type User struct {
 	createDate time.Time
 }
 
-func newUser(firstName, lastName, birthdate string) User {
-	return User{
+func newUser(firstName, lastName, birthdate string) *User {
+	return &User{
 		firstName:  firstName,
 		lastName:   lastName,
 		birthdate:  birthdate,
@@ -26,7 +26,7 @@ func main() {
 	userLastName := getUserData("Please enter your last name: ")
 	userBirthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	var appUser User = newUser(userFirstName, userLastName, userBirthdate)
+	var appUser *User = newUser(userFirstName, userLastName, userBirthdate)
 
 	appUser.outputUserData()
 	appUser.clearUserName()
