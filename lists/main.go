@@ -25,4 +25,8 @@ func main() {
 
 	// fmt.Println(courseRatings, len(courseRatings))
 	courseRatings.output()
+
+	for index, value := range userNames {
+		fmt.Println(index, value)
+	}
 }
