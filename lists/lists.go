@@ -13,4 +13,9 @@ func main() {
 
 	fmt.Println(prices[0])
 
+	// Slices
+	featuredPrice := prices[1:3]
+
+	fmt.Println(featuredPrice)
+
 }
