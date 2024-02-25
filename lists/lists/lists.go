@@ -25,11 +25,15 @@ func main() {
 	// featuredPrice = prices[1:]
 	// fmt.Println(len(featuredPrice), cap(featuredPrice))
 
-	prices := []float64{10.99, 9.99}
+	prices := []float64{10.99, 9.99, 8.99}
 
 	fmt.Println(prices)
 
 	prices = append(prices, 5.99)
 	fmt.Println(prices)
 
+	discountPrices := []float64{101.99, 80.99, 20.59}
+	prices = append(prices, discountPrices...)
+
+	fmt.Println(prices)
 }
