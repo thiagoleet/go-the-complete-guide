@@ -15,7 +15,14 @@ func main() {
 
 	// Slices
 	featuredPrice := prices[1:3]
-
 	fmt.Println(featuredPrice)
+	fmt.Println(len(featuredPrice), cap(featuredPrice))
+
+	featuredPrice = prices[:3]
+	fmt.Println(featuredPrice)
+	fmt.Println(len(featuredPrice), cap(featuredPrice))
+
+	featuredPrice = prices[1:]
+	fmt.Println(len(featuredPrice), cap(featuredPrice))
 
 }
