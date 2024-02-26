@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"os"
+	"path/filepath"
+	"time"
 )
 
 type FileManager struct {
@@ -39,11 +41,14 @@ func (fm FileManager) ReadLines() ([]string, error) {
 }
 
 func (fm FileManager) WriteResult(data interface{}) error {
-	file, err := os.Create(fm.OutputFilePath)
+	const dir = "output"
+	file, err := os.Create(filepath.Join(dir, fm.OutputFilePath))
 
 	if err != nil {
 		return errors.New("failed to created file")
 	}
+
+	time.Sleep(3 * time.Second)
 
 	enconder := json.NewEncoder(file)
 	err = enconder.Encode(data)
