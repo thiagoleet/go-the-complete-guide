@@ -1,39 +1,24 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	numbers := []int{1, 2, 3, 4}
-
-	double := createTramsformer(2)
-	triple := createTramsformer(3)
-
-	transformed := transformNumbers(&numbers, func(number int) int {
-		return number * 2
-	})
-
-	doubled := transformNumbers(&numbers, double)
-	tripled := transformNumbers(&numbers, triple)
-
-	fmt.Println(numbers)
-	fmt.Println(transformed)
-	fmt.Println(doubled)
-	fmt.Println(tripled)
+	fact := factorial(5)
+	fmt.Println(fact)
 }
 
-func transformNumbers(numbers *[]int, transform func(int) int) []int {
-	dNumbers := []int{}
-	for _, val := range *numbers {
-		dNumbers = append(dNumbers, transform(val))
+func factorial(number int) int {
+	// result := 1
+
+	// for i := 1; i <= number; i++ {
+	// 	result = result * i
+	// }
+
+	// return result
+
+	if number == 0 {
+		return 1
 	}
 
-	return dNumbers
-}
-
-func createTramsformer(factor int) func(int) int {
-	return func(number int) int {
-		return number * factor
-	}
+	return number * factorial(number-1)
 }
