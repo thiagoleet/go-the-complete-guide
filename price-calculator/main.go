@@ -16,6 +16,7 @@ func main() {
 		outputPath := fmt.Sprintf("result_%.0f.json", taxRate*100)
 
 		fm := filemanager.New(intputFilePath, outputPath)
+		// cm := cmdmanager.New()
 
 		priceJob := prices.NewTaxIncludedPriceJob(fm, taxRate)
 		priceJob.Process()
