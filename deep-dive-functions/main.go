@@ -10,7 +10,7 @@ func main() {
 	fmt.Println(sum)
 }
 
-func sumUp(numbers ...int) int {
+func sumUp(starting int, numbers ...int) int {
 	sum := 0
 	for _, value := range numbers {
 		sum += value
