@@ -4,10 +4,13 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"thiagoleite.me/go-event-booking-api/db"
 	"thiagoleite.me/go-event-booking-api/models"
 )
 
 func main() {
+	db.InitDB()
+
 	server := gin.Default()
 	server.GET("/events", getEvents)
 	server.POST("/events", createEvent)
